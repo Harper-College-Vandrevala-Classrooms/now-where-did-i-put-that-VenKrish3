@@ -9,7 +9,7 @@ int search(string,string);
 int main()
 {
 	cout << "the letter t is at " << search("the quick brown fox",'t') << endl;
-	cout << "the word fox is at " << search("the quick brown fox","the") << endl;
+	cout << "the word brown is at " << search("the quick brown fox","brown") << endl;
 }
 
 int search(string sentence, char x)
@@ -24,8 +24,6 @@ int search(string sentence, char x)
 	return -1;
 };
 
-//set to length of y so that you dont compare sentence of 3 vs y of 2
-
 int search(string sentence, string y)
 {
 	int total = y.length()-1;
@@ -33,9 +31,9 @@ int search(string sentence, string y)
 	{
 		if(sentence[i] == y[total])
 		{
-			total--;
-			if(total == 0)
+			if(total == 0 && sentence[i] == y[0])
 				return i;
+			total--;
 		}
 	}
 	return -1;	
